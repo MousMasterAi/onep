@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téléchargement et Conversion de Photos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Téléchargez et Convertissez vos Photos</h1>
+    <div id="drop_zone" ondragover="dragOverHandler(event);" ondrop="dropHandler(event);">
+        Glissez vos images ici ou cliquez pour sélectionner des images
+    </div>
+    <form id="upload_form" action="/upload" method="post" enctype="multipart/form-data">
+        <button type="button" onclick="document.getElementById('file_input').click();">Sélectionner des fichiers</button>
+        <input type="file" id="file_input" name="photos" multiple required hidden onchange="handleFileSelect(event)" accept=".bmp, .gif, .jpeg, .jpg, .png, .pdf, .doc, .zip, .txt">
+        <select id="ratio_select" name="ratio">
+            <option value="4:5">4:5 (16x20 inches)</option>
+            <option value="2:3">2:3 (20x30 inches)</option>
+            <option value="5:7">5:7 (5x7 inches)</option>
+            <option value="11:14">11:14 (11x14 inches)</option>
+        </select>
+        <button type="submit">Convertir et Télécharger</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
